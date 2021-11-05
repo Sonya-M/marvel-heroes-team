@@ -9,7 +9,6 @@ import {
 } from "react-icons/md";
 
 import classes from "./Pagination.module.css";
-import { current } from "@reduxjs/toolkit";
 
 export default function Pagination(props) {
   const { currentPage, totalPages } = useSelector((state) => state.allHeroes);
