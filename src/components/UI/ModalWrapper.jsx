@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
 import ReactDOM from "react-dom";
-import Button from "./Button";
 
 import classes from "./ModalWrapper.module.css";
 
@@ -18,9 +17,9 @@ const ModalOverlay = (props) => {
       <header className={classes.header}>
         {/* if no title, empty string for formatting */}
         <h3>{props.title ? props.title : ""}</h3>
-        <Button variant="small" onClick={props.onClose}>
+        <span className={classes.closeBtn} onClick={props.onClose}>
           X
-        </Button>
+        </span>
       </header>
       <div
         className={`${!props.fullImage ? classes.content : classes.fullImage}`}

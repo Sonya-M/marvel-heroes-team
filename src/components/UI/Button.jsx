@@ -6,7 +6,8 @@ export default function Button(props) {
     <button
       className={classes.button}
       onClick={props.onClick}
-      style={{ color: color, backgroundColor: bg }}>
+      style={color && bg && { color: color, backgroundColor: bg }}
+    >
       {props.children}
     </button>
   );

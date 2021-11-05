@@ -56,6 +56,7 @@
   margin: 0;
   display: inline-block;
   padding-left: 0.3rem;
+  padding-right: 0.3rem;
 }
 
 .header button {
@@ -83,6 +84,22 @@
 .small .content {
   text-align: center;
   font-size: 1.2rem;
+}
+
+.closeBtn {
+  display: block;
+  cursor: pointer;
+  color: orange;
+  font-size: 1.3rem;
+  padding: 0.1rem 0.4rem;
+  border-radius: 0.2rem;
+  /* border: 1px solid orange; */
+  align-self: flex-start;
+  box-shadow: 0 0 1px 2px rgba(255, 166, 0, 0.445);
+}
+.closeBtn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 2px 3px rgba(255, 166, 0, 0.863);
 }
 
 @media (max-width: 600px) {

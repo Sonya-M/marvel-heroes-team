@@ -16,9 +16,9 @@ export default function TeamList(props) {
     <section className={classes.teamList}>
       <header className={classes.header}>
         <h2>Your Team</h2>
-        <button className={classes.closeBtn} onClick={handleClose}>
+        <span className={classes.closeBtn} onClick={handleClose}>
           x
-        </button>
+        </span>
       </header>
       {bookmarked.length > 0 ? (
         <ul>
