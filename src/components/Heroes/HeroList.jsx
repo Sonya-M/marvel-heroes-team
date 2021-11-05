@@ -6,7 +6,7 @@ import classes from "./HeroList.module.css";
 import Message from "../UI/Message";
 import Pagination from "./Pagination";
 
-export default function HeroList() {
+export default function HeroList(props) {
   const heroes = useSelector((state) => state.allHeroes.heroes);
   const notification = useSelector((state) => state.ui.notification);
 
@@ -20,6 +20,11 @@ export default function HeroList() {
     <Message>No heroes found.</Message>
   ) : (
     <>
+      {props.query && (
+        <Message>
+          <p>{`Search results for "${props.query}"`}</p>
+        </Message>
+      )}
       <div className={classes.heroList}>
         {heroes.map((c) => {
           return <HeroCard key={c.id} hero={c} />;

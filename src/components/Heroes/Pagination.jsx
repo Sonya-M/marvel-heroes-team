@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { allHeroesActions } from "../../store/all-heroes-slice";
 import { getTotalPages } from "../../shared/utilityFns";
+import Message from "../UI/Message";
 
 import {
   MdFirstPage,
@@ -38,25 +39,34 @@ export default function Pagination(props) {
   } ${classes.pagBtn}`;
 
   return (
-    <div className={classes.pagContainer}>
-      <span>
-        <MdFirstPage
-          className={backBtnClasses}
-          onClick={handleFirstPageClick}
-        />
-        <MdNavigateBefore
-          className={backBtnClasses}
-          onClick={handlePrevPageClick}
-        />
-      </span>
-      {props.children}
-      <span>
-        <MdNavigateNext
-          className={nextBtnClasses}
-          onClick={handleNextPageClick}
-        />
-        <MdLastPage className={nextBtnClasses} onClick={handleLastPageClick} />
-      </span>
-    </div>
+    <>
+      <div className={classes.pagContainer}>
+        <span>
+          <MdFirstPage
+            className={backBtnClasses}
+            onClick={handleFirstPageClick}
+          />
+          <MdNavigateBefore
+            className={backBtnClasses}
+            onClick={handlePrevPageClick}
+          />
+        </span>
+        {props.children}
+        <span>
+          <MdNavigateNext
+            className={nextBtnClasses}
+            onClick={handleNextPageClick}
+          />
+          <MdLastPage
+            className={nextBtnClasses}
+            onClick={handleLastPageClick}
+          />
+        </span>
+      </div>
+      <Message>
+        <p>{`Page ${currentPage + 1} of ${totalPages}`}</p>
+        <p className={classes.total}>{`(${totalResults} results)`}</p>
+      </Message>
+    </>
   );
 }
