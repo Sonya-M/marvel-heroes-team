@@ -1,9 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const cachedBookmarks = JSON.parse(localStorage.getItem("bookmarked"));
+
 const bookmarkedSlice = createSlice({
   name: "bookmarked",
   initialState: {
-    bookmarkedHeroes: [],
+    bookmarkedHeroes: cachedBookmarks || [],
   },
   reducers: {
     // addHero(state, action) {
@@ -19,6 +21,7 @@ const bookmarkedSlice = createSlice({
       } else {
         state.bookmarkedHeroes.push(action.payload);
       }
+      localStorage.setItem("bookmarked", JSON.stringify(state.bookmarkedHeroes));
     }
   }
 })
