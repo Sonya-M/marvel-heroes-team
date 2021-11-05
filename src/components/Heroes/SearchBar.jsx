@@ -11,11 +11,11 @@ export default function SearchBar() {
 
   // clear search bar on logo click
   // TODO: not sure this is the right way
-  // useEffect(() => {
-  //   if (!search) {
-  //     inputRef.current.value = "";
-  //   }
-  // }, [search]);
+  useEffect(() => {
+    if (!search) {
+      inputRef.current.value = "";
+    }
+  }, [search]);
 
   const handleSearch = (e) => {
     e.preventDefault();
