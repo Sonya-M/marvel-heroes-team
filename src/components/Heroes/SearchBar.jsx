@@ -14,6 +14,8 @@ export default function SearchBar() {
 
   // clear search bar on logo click
   // TODO: not sure this is the right way
+  // since you're displaying the query in Message anyways, you could just
+  // clear the input box after retrieving the query
   useEffect(() => {
     if (!search) {
       inputRef.current.value = "";
