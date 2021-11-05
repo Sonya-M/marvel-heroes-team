@@ -1,9 +1,12 @@
 import { useRef } from "react";
 import { useLocation, useHistory } from "react-router-dom";
+import { allHeroesActions } from "../../store/all-heroes-slice";
+import { useDispatch } from "react-redux";
 import classes from "./SearchBar.module.css";
 
 export default function SearchBar() {
   const inputRef = useRef();
+  const dispatch = useDispatch();
 
   let history = useHistory();
   let location = useLocation();
@@ -12,6 +15,8 @@ export default function SearchBar() {
     e.preventDefault();
     const query = inputRef.current.value;
     if (query === "") return;
+    dispatch(allHeroesActions.goToFirstPage()); // this needs to happen here,
+    // not in AllHeroes
     history.push({
       pathname: location.pathname,
       search: `?nameStartsWith=${query}`,

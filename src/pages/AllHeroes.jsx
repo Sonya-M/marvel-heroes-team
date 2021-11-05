@@ -10,7 +10,7 @@ import HeroList from "../components/Heroes/HeroList";
 import SearchBar from "../components/Heroes/SearchBar";
 import classes from "./AllHeroes.module.css";
 import { LIMIT } from "../shared/constants";
-import { allHeroesActions } from "../store/all-heroes-slice";
+
 
 export default function AllHeroes() {
   let location = useLocation();
@@ -24,7 +24,6 @@ export default function AllHeroes() {
   const nameStartsWith = queryParams.get("nameStartsWith");
   useEffect(() => {
     console.log(location);
-    if (nameStartsWith) dispatch(allHeroesActions.goToFirstPage()); // reset currentPage to 0
     dispatch(
       getHeroes({ name: nameStartsWith || "", offset: currentPage * LIMIT })
     );
