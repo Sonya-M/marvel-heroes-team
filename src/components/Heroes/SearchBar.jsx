@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useLocation, useHistory } from "react-router-dom";
 import classes from "./SearchBar.module.css";
 
@@ -7,6 +7,15 @@ export default function SearchBar() {
 
   let history = useHistory();
   let location = useLocation();
+  let { search } = location;
+
+  // clear search bar on logo click
+  // TODO: not sure this is the right way
+  // useEffect(() => {
+  //   if (!search) {
+  //     inputRef.current.value = "";
+  //   }
+  // }, [search]);
 
   const handleSearch = (e) => {
     e.preventDefault();
