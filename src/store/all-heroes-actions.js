@@ -30,7 +30,7 @@ export const getHeroes = (params) => {
         throw new Error(response.status || "fetchHeroes failed");
       }
       const json = await response.json();
-      console.log(json);
+      // console.log(json);
       return { heroes: json.data.results, totalResults: json.data.total };
     }
 

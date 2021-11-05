@@ -11,16 +11,11 @@ import './App.css';
 import NotFound from "./pages/NotFound";
 
 function App() {
-  let history = useHistory();
   const showTeam = useSelector(state => state.ui.showBookmarked);
-
-  const handleRefresh = () => {
-    history.push("/marvel-heroes");
-  }
 
   return (
     <>
-      <Navbar onLogoClick={handleRefresh} />
+      <Navbar />
       {showTeam && (
         <TeamList />
       )}
