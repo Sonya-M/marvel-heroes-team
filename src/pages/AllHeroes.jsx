@@ -6,7 +6,8 @@ import { getHeroes } from "../store/all-heroes-actions";
 import useScrollListener from "../hooks/useScrollListener";
 import ScrollToTopBtn from "../components/UI/ScrollToTopBtn";
 
-import SearchableHeroList from "../components/Heroes/SearchableHeroList";
+import HeroList from "../components/Heroes/HeroList";
+import SearchBar from "../components/Heroes/SearchBar";
 import classes from "./AllHeroes.module.css";
 import { LIMIT } from "../shared/constants";
 
@@ -30,7 +31,8 @@ export default function AllHeroes() {
 
   return (
     <section className={classes.mainContainer}>
-      <SearchableHeroList />
+      <SearchBar />
+      <HeroList />
       {scrolledDown && <ScrollToTopBtn />}
     </section>
   );

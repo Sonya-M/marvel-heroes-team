@@ -18,7 +18,7 @@ export const getHeroes = (params) => {
   console.log("#################Getting heroes...#########################");
 
   const name = params?.name ?? "";
-  const limit = params?.limit ?? 20;
+  const limit = params?.limit ?? LIMIT;
   const offset = params?.offset ?? 0;
 
   return async (dispatch) => {
@@ -55,7 +55,8 @@ export const getHeroes = (params) => {
       }))
 
       dispatch(allHeroesActions.replaceHeroes(heroes));
-      dispatch(allHeroesActions.setTotalPages(Math.ceil(totalResults / LIMIT)))
+      dispatch(allHeroesActions.setTotalResults(totalResults))
+
 
     } catch (error) {
 

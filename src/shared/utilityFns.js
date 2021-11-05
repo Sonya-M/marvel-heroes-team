@@ -1,3 +1,4 @@
+import { LIMIT } from "./constants";
 /**
  * 
  * @param {string} str string to shorten
@@ -19,4 +20,8 @@ export function shortenString(str, newLength) {
 export function formatDate(dateString) {
   return new Intl.DateTimeFormat('en-GB', { dateStyle: 'medium' })
     .format(Date.parse(dateString));
+}
+
+export const getTotalPages = (totalResults) => {
+  return Math.ceil(totalResults / LIMIT);
 }

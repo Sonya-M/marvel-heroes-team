@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { allHeroesActions } from "../../store/all-heroes-slice";
+import { getTotalPages } from "../../shared/utilityFns";
 
 import {
   MdFirstPage,
@@ -11,7 +12,8 @@ import {
 import classes from "./Pagination.module.css";
 
 export default function Pagination(props) {
-  const { currentPage, totalPages } = useSelector((state) => state.allHeroes);
+  const { currentPage, totalResults } = useSelector((state) => state.allHeroes);
+  const totalPages = getTotalPages(totalResults);
 
   const dispatch = useDispatch();
 

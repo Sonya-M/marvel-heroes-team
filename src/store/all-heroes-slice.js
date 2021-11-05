@@ -1,27 +1,28 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { getTotalPages } from "../shared/utilityFns";
 
 const allHeroesSlice = createSlice({
   name: "allHeroes",
   initialState: {
     heroes: [],
     currentPage: 0,
-    totalPages: 0,
+    totalResults: 0,
   },
   reducers: {
     replaceHeroes(state, action) {
       state.heroes = action.payload;
     },
-    setTotalPages(state, action) {
-      state.totalPages = action.payload;
+    setTotalResults(state, action) {
+      state.totalResults = action.payload;
     },
     goToFirstPage(state) {
       state.currentPage = 0;
     },
     goToLastPage(state,) {
-      state.currentPage = state.totalPages - 1;
+      state.currentPage = getTotalPages(state.totalResults) - 1;
     },
     goToNextPage(state) {
-      if (state.currentPage < state.totalPages - 1)
+      if (state.currentPage < getTotalPages(state.totalResults) - 1)
         state.currentPage++
     },
     goToPrevPage(state) {
