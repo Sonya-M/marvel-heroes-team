@@ -1,0 +1,8 @@
+a.link {
+  display: inline-block;
+  color: orange;
+}
+
+a.link:hover {
+  border-bottom: 2px solid orange;
+}

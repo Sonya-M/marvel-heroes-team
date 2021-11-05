@@ -1,0 +1,41 @@
+.profileContainer {
+  display: grid;
+  grid-template-areas:
+    "heroImg"
+    "heroDesc";
+  gap: 1rem;
+}
+
+.heroImg {
+  grid-area: heroImg;
+  margin: 0 auto;
+}
+.heroImg img {
+  max-width: 100%;
+  box-shadow: 0 0 3px 5px rgba(0, 0, 0, 0.325);
+  cursor: pointer;
+}
+
+.heroImg img:hover {
+  box-shadow: 0 0 3px 5px rgba(0, 0, 0, 0.425);
+}
+
+.heroDesc {
+  grid-area: heroDesc;
+  margin: 0 auto;
+}
+.heroDesc h1 {
+  margin-top: 0;
+}
+
+@media screen and (min-width: 700px) {
+  .profileContainer {
+    grid-template-areas: "heroImg heroDesc";
+    /* grid-template-columns: 1fr 1fr; */
+
+    margin: 2rem;
+  }
+  .heroDesc {
+    margin: unset;
+  }
+}

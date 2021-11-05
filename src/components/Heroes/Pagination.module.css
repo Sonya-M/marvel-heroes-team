@@ -1,0 +1,20 @@
+.pagContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 2.5rem;
+  color: white;
+}
+
+.pagBtn {
+  display: inline-block;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 0.3rem;
+  cursor: pointer;
+  margin: 0.5rem;
+}
+
+.disabled {
+  filter: brightness(0.3);
+  cursor: unset;
+}

@@ -1,0 +1,16 @@
+.topBtn {
+  border-radius: 0.5rem;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 0.2rem 0.5rem;
+  background-color: rgba(0, 0, 0, 0.333);
+  position: fixed;
+  bottom: 0.6rem;
+  right: 0.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.33);
+  outline: none;
+  cursor: pointer;
+  z-index: 3;
+  /* transform: rotate(90deg); */
+}

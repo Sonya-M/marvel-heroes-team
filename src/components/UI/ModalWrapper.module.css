@@ -1,0 +1,114 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.412);
+}
+
+.modal {
+  background: url("../../assets/texture-comic-book-style.jpg") no-repeat center
+    center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  position: fixed;
+  border-radius: 0.3rem;
+  top: 20vh;
+  left: 10%;
+  width: 80%;
+  z-index: 100;
+  overflow: hidden;
+  /* background-color: blanchedalmond; */
+  box-shadow: 0 0 3px 1px blanchedalmond;
+  max-height: 75vh;
+  overflow-y: auto;
+}
+
+.imgModal {
+  background: transparent;
+  box-shadow: none;
+}
+
+.small {
+  top: 20vh;
+  left: 10%;
+  width: 80%;
+}
+
+.header {
+  background: black;
+  color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.small .header {
+  padding: 0.4rem;
+}
+
+.header h3 {
+  margin: 0;
+  display: inline-block;
+  padding-left: 0.3rem;
+}
+
+.header button {
+  background-color: transparent;
+  color: inherit;
+  align-self: flex-start;
+}
+.header button:hover {
+  filter: drop-shadow(0 0 3px blanchedalmond);
+}
+
+.content {
+  padding: 1rem;
+  text-shadow: 0 0 10px white;
+}
+
+.fullImage {
+  padding: 0;
+}
+.fullImage img {
+  margin: 0;
+  padding: 0;
+}
+
+.small .content {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 600px) {
+  .modal {
+    top: 15vh;
+    font-size: small;
+  }
+  .imgModal {
+    top: 15vh;
+    left: 5%;
+    width: 90%;
+  }
+}
+
+@media (min-width: 600px) {
+  .modal {
+    left: calc(50% - 20rem);
+    width: 40rem;
+  }
+  .small {
+    left: calc(50% - 14rem);
+    width: 28rem;
+  }
+  .imgModal {
+    top: 10vh;
+    left: calc(50% - 15rem);
+    width: 30rem;
+  }
+}

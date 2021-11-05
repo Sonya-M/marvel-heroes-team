@@ -1,0 +1,101 @@
+@font-face {
+  font-family: RealityCheck;
+  src: url("./fonts/RealityCheck.otf") format("opentype");
+}
+@font-face {
+  font-family: AnimeAce;
+  font-weight: regular;
+  src: url("./fonts/animeace2_reg.otf") format("opentype");
+}
+
+/* @font-face {
+  font-family: AnimeAceBold;
+  font-weight: bold;
+  src: url("./fonts/animeace2_bld.otf") format("opentype");
+}
+
+@font-face {
+  font-family: AnimeAceItal;
+  font-weight: italic;
+  src: url("./fonts/animeace2_ital.otf") format("opentype");
+} */
+
+* {
+  box-sizing: border-box;
+}
+
+/* the html element (better than body as it’s always at least the height of the 
+browser window)
+source: https://css-tricks.com/perfect-full-page-background-image/
+*/
+html {
+  background: url("./assets/main-bg.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: "AnimeAce", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.8rem; /* only for AnimeAce*/
+}
+
+@media screen and (max-width: 400px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  margin-top: 0;
+  padding-top: 2rem;
+  color: whitesmoke;
+  text-shadow: 2px 2px 3px black;
+}
+.header h1 {
+  cursor: pointer;
+  text-shadow: 2px 2px 3px black;
+}
+
+h1,
+h2 {
+  font-family: "RealityCheck";
+}
+h1 {
+  font-size: xx-large;
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.action {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+::-moz-selection {
+  background: rgba(255, 166, 0, 0.514);
+}
+::selection {
+  background: rgba(255, 166, 0, 0.514);
+}
+
+button {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}

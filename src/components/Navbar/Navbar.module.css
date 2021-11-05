@@ -1,0 +1,62 @@
+.header {
+  margin: 0;
+
+  background-color: black;
+  margin-bottom: 1rem;
+}
+
+.nav {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  color: white;
+  padding: 1rem;
+}
+
+@media screen and (min-width: 400px) {
+  .nav {
+    flex-flow: row nowrap;
+  }
+}
+
+.nav h1 {
+  cursor: pointer;
+  margin: 0;
+}
+
+.showTeamBtn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.5rem;
+  outline: none;
+  border: none;
+  padding: 0.3rem 0.7rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  background-color: rgb(194, 10, 47);
+  box-shadow: 0 0 1px 1px orangered;
+
+  color: white;
+  font-family: "Roboto Slab", serif;
+  cursor: pointer;
+}
+.showTeamBtn:hover,
+.showTeamBtn:focus,
+.showTeamBtn:active {
+  background-color: rgb(163, 4, 36);
+  box-shadow: 0 0 2px 2px orangered;
+}
+
+.badge {
+  border-radius: 0.6rem;
+  padding: 0.1rem 0.6rem;
+  background-color: antiquewhite;
+  color: black;
+  font-size: 0.6rem;
+  margin-left: 0.3rem;
+}

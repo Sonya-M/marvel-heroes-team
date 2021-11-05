@@ -1,0 +1,51 @@
+.teamList {
+  width: 100%;
+  max-width: 26rem;
+  margin: 1rem auto;
+  background-color: rgba(0, 0, 0, 0.501);
+  border-radius: 0.5rem;
+  padding: 0.1rem;
+  color: whitesmoke;
+}
+
+.header {
+  padding: 0.8rem 0.5rem;
+  color: whitesmoke;
+  text-align: center;
+}
+.header h2 {
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+}
+.closeBtn {
+  float: right;
+  background-color: rgb(163, 4, 36);
+  border: 1px solid orangered;
+
+  outline: none;
+  color: white;
+  font-size: 1.3rem;
+  padding: 0.1rem 0.6rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+.closeBtn:hover,
+.closeBtn:active,
+.closeBtn:focus {
+  box-shadow: 0 0 2px 2px orangered;
+}
+.teamList ul {
+  all: unset;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding-bottom: 1rem;
+}
+
+.noMembers {
+  /* font-style: italic; */
+  font-size: 1.1rem;
+}

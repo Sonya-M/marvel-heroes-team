@@ -1,0 +1,54 @@
+.sliderContainer {
+  max-width: 90vw;
+  position: relative;
+}
+
+.contentContainer {
+  width: max-content; /*!!! important for next/prev btns visibility */
+  max-width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 10px;
+  overflow-x: scroll;
+  margin: 0 auto;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+/* it appears the defined width of the card is important for showing/hiding the 
+next/prev btns, since the algorithm checks if window width is less than the 
+scrollable width of the card container  (contentContainer) */
+.card {
+  width: 200px;
+}
+
+.next,
+.prev {
+  position: absolute;
+  top: calc(50% - 1.25rem);
+  display: inline-block;
+  font-size: 2.5rem;
+  z-index: 1;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+.next:hover,
+.prev:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.prev {
+  left: -1rem;
+}
+
+.next {
+  right: -1rem;
+}

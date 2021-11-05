@@ -1,0 +1,13 @@
+.message {
+  margin: 2rem;
+  /* font-family: "Bowlby One SC"; */
+  letter-spacing: 0.1rem;
+  font-size: 1rem;
+  color: white;
+  text-shadow: 2px 2px 3px black;
+  text-align: center;
+}
+
+.message a {
+  border-bottom: 2px orange;
+}

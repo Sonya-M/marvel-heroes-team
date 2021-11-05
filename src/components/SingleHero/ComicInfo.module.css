@@ -1,0 +1,25 @@
+.ComicInfoDiv {
+  margin: 0.4rem 0;
+}
+.ComicInfoDiv ul {
+  margin: 0.2rem;
+}
+
+.infoArticle div {
+  margin: 1rem 0;
+}
+.infoHeading {
+  display: inline;
+}
+
+@media screen and (min-width: 700px) {
+  .infoArticle {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .infoArticle .desc {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+}

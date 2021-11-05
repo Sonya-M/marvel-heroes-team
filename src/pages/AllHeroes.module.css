@@ -1,0 +1,12 @@
+.mainContainer {
+  margin: 0;
+  padding: 0;
+  /* background: linear-gradient(45deg, rgb(163, 5, 5), rgba(0, 0, 0, 0.678));
+  background-color: rgb(163, 5, 5); */
+  /* background-image: url("../assets/main-bg.jpg"); */
+  background: url("../assets/main-bg.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
