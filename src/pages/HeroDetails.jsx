@@ -1,6 +1,8 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
+import { useSelector } from "react-redux";
+
 import * as endpoints from "../api/endpoints";
 
 import Loader from "../components/UI/Loader";
@@ -25,6 +27,9 @@ export default function HeroDetails(props) {
 
   const [hero, setHero] = useState(null);
 
+  const heroes = useSelector((state) => state.allHeroes.heroes);
+  const bookmarked = useSelector((state) => state.bookmarked.bookmarkedHeroes);
+
   const fetchSingleHero = useCallback(async () => {
     const URL = `${endpoints.ALL_CHARACTERS}/${id}?ts=${process.env.REACT_APP_TS}&apikey=${process.env.REACT_APP_API_KEY}&hash=${process.env.REACT_APP_HASH}`;
     const response = await fetch(URL);
@@ -36,7 +41,19 @@ export default function HeroDetails(props) {
     return json.data.results; // should return array of length 1
   }, [id]);
 
+  const retrieveHeroFromCache = useCallback(() => {
+    let hero = heroes.find((h) => h.id === +id);
+    if (!hero) hero = bookmarked.find((h) => h.id === +id);
+    console.log("RETRIEVED HERO: ", hero);
+    return hero;
+  }, [id, bookmarked, heroes]);
+
   useEffect(() => {
+    const retrievedHero = retrieveHeroFromCache();
+    if (retrievedHero) {
+      setHero(retrievedHero);
+      return;
+    }
     setLoadingHero(true);
     fetchSingleHero()
       .then((data) => {
@@ -52,7 +69,7 @@ export default function HeroDetails(props) {
       .finally(() => {
         setLoadingHero(false);
       });
-  }, [id, fetchSingleHero]);
+  }, [id, fetchSingleHero, retrieveHeroFromCache]);
 
   const fetchComicsData = useCallback(async () => {
     const URL = `${endpoints.ALL_CHARACTERS}/${id}/comics?ts=${process.env.REACT_APP_TS}&apikey=${process.env.REACT_APP_API_KEY}&hash=${process.env.REACT_APP_HASH}`;
