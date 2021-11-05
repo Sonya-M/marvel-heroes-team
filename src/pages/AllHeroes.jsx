@@ -24,7 +24,7 @@ export default function AllHeroes() {
   const nameStartsWith = queryParams.get("nameStartsWith");
   useEffect(() => {
     console.log(location);
-    dispatch(allHeroesActions.goToFirstPage()); // reset currentPage to 0
+    if (nameStartsWith) dispatch(allHeroesActions.goToFirstPage()); // reset currentPage to 0
     dispatch(
       getHeroes({ name: nameStartsWith || "", offset: currentPage * LIMIT })
     );
