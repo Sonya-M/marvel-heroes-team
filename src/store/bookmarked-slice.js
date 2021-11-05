@@ -22,6 +22,10 @@ const bookmarkedSlice = createSlice({
         state.bookmarkedHeroes.push(action.payload);
       }
       localStorage.setItem("bookmarked", JSON.stringify(state.bookmarkedHeroes));
+    },
+    clearAll(state) {
+      state.bookmarkedHeroes = [];
+      localStorage.removeItem("bookmarked");
     }
   }
 })

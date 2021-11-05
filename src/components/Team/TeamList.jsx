@@ -2,6 +2,7 @@ import TeamMemberCard from "./TeamMemberCard";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { uiActions } from "../../store/ui-slice";
+import { bookmarkedActions } from "../../store/bookmarked-slice";
 import classes from "./TeamList.module.css";
 
 export default function TeamList(props) {
@@ -9,6 +10,11 @@ export default function TeamList(props) {
   const dispatch = useDispatch();
 
   const handleClose = () => {
+    dispatch(uiActions.toggleShowBookmarked());
+  };
+
+  const handleRemoveAll = () => {
+    dispatch(bookmarkedActions.clearAll());
     dispatch(uiActions.toggleShowBookmarked());
   };
 
@@ -29,6 +35,11 @@ export default function TeamList(props) {
       ) : (
         <p className={`${classes.noMembers} centered`}>Start adding members!</p>
       )}
+      {bookmarked.length > 1 ? (
+        <p className={classes.removeAll} onClick={handleRemoveAll}>
+          Expel all!
+        </p>
+      ) : null}
     </section>
   );
 }
