@@ -13,14 +13,15 @@ export default function SearchBar() {
   let { search } = location;
 
   // clear search bar on logo click
-  // TODO: not sure this is the right way
+  // TODO: not sure this is the right way, but I see no need for a controlled
+  // component - check this!
   // since you're displaying the query in Message anyways, you could just
   // clear the input box after retrieving the query
-  useEffect(() => {
-    if (!search) {
-      inputRef.current.value = "";
-    }
-  }, [search]);
+  // useEffect(() => {
+  //   if (!search) {
+  //     inputRef.current.value = "";
+  //   }
+  // }, [search]);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -28,6 +29,8 @@ export default function SearchBar() {
     if (query === "") return;
     dispatch(allHeroesActions.goToFirstPage()); // this needs to happen here,
     // not in AllHeroes
+    e.target.reset(); // reset input value here, since you're displaying the
+    // query in Message anyways
     history.push({
       pathname: location.pathname,
       search: `?nameStartsWith=${query}`,
