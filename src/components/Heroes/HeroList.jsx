@@ -21,23 +21,21 @@ export default function HeroList(props) {
       {props.query ? (
         <Message>
           <p>{`Search results for "${props.query}"`}</p>
+          {heroes.length === 0 ? (
+            <p className={classes.noResults}>No heroes found</p>
+          ) : null}
         </Message>
       ) : null}
 
       {heroes.length > 0 ? (
         <>
-          {" "}
           <div className={classes.heroList}>
             {heroes.map((c) => {
               return <HeroCard key={c.id} hero={c} />;
             })}
           </div>
-          <Pagination />{" "}
+          <Pagination />
         </>
-      ) : props.query ? (
-        <Message>
-          <p className={classes.noResults}>No heroes found</p>
-        </Message>
       ) : null}
     </>
   );

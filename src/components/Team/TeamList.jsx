@@ -7,9 +7,12 @@ import TeamMemberCard from "./TeamMemberCard";
 import ModalConfirmDialog from "../UI/ModalConfirmDialog";
 
 import classes from "./TeamList.module.css";
+import Loader from "../UI/Loader";
+import Message from "../UI/Message";
 
 export default function TeamList(props) {
   const bookmarked = useSelector((state) => state.bookmarked.bookmarkedHeroes);
+  const notification = useSelector((state) => state.ui.notification);
   const dispatch = useDispatch();
   const [showConfirmDialog, setShowConfirmDialog] = useState(false);
 
@@ -29,6 +32,17 @@ export default function TeamList(props) {
   const handleCancelRemove = () => {
     setShowConfirmDialog(false);
   };
+
+  if (notification?.bookmarkedStatus === "loading") {
+    return <Loader />;
+  }
+  if (notification?.bookmarkedStatus === "error") {
+    return (
+      <Message>
+        <p className={classes.error}>{notification.message}</p>
+      </Message>
+    );
+  }
 
   return (
     <>

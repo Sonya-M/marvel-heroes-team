@@ -38,14 +38,14 @@ export const loadBookmarked = () => {
     }
 
     dispatch(uiActions.showNotification({
-      status: "loading",
+      bookmarkedStatus: "loading",
       title: "Loading",
       message: "Loading bookmarked heroes..."
     }))
     try {
       const bookmarked = await fetchBookmarked(ids);
       dispatch(uiActions.showNotification({
-        status: "success",
+        bookmarkedStatus: "success",
         title: "Success",
         message: "Fetched bookmarked heroes!"
       }));
@@ -56,9 +56,9 @@ export const loadBookmarked = () => {
     } catch (error) {
       console.log(error);
       dispatch(uiActions.showNotification({
-        status: "error",
+        bookmarkedStatus: "error",
         title: "Error",
-        message: "Fetching bookmarked heroes failed."
+        message: "Failed to load team."
       }))
     }
   }

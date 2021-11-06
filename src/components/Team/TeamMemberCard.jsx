@@ -6,6 +6,7 @@ import { bookmarkedActions } from "../../store/bookmarked-slice";
 
 import { BsTrashFill } from "react-icons/bs";
 import { getStandardMediumImg } from "../../shared/image-getters";
+import { shortenString } from "../../shared/utilityFns";
 
 import ModalConfirmDialog from "../UI/ModalConfirmDialog";
 
@@ -33,6 +34,8 @@ export default function TeamMemberCard(props) {
     history.push(`/marvel-heroes/${hero.id}`);
   };
 
+  const shortenedName = shortenString(hero.name, 25);
+
   return (
     <>
       {showConfirmDialog && (
@@ -50,7 +53,7 @@ export default function TeamMemberCard(props) {
           </div>
         </div>
         <h5 className={`${classes.caption} action`} onClick={handleNameClick}>
-          {hero.name}
+          {shortenedName}
         </h5>
       </li>
     </>
