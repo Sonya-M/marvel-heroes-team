@@ -16,21 +16,29 @@ export default function HeroList(props) {
   if (notification?.status === "error") {
     return <Message>{notification.message}</Message>;
   }
-  return heroes.length === 0 ? (
-    <Message>No heroes found.</Message>
-  ) : (
+  return (
     <>
-      {props.query && (
+      {props.query ? (
         <Message>
           <p>{`Search results for "${props.query}"`}</p>
         </Message>
-      )}
-      <div className={classes.heroList}>
-        {heroes.map((c) => {
-          return <HeroCard key={c.id} hero={c} />;
-        })}
-      </div>
-      <Pagination />
+      ) : null}
+
+      {heroes.length > 0 ? (
+        <>
+          {" "}
+          <div className={classes.heroList}>
+            {heroes.map((c) => {
+              return <HeroCard key={c.id} hero={c} />;
+            })}
+          </div>
+          <Pagination />{" "}
+        </>
+      ) : props.query ? (
+        <Message>
+          <p className={classes.noResults}>No heroes found</p>
+        </Message>
+      ) : null}
     </>
   );
 }

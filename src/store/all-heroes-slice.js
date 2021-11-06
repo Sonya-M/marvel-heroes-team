@@ -18,6 +18,9 @@ const allHeroesSlice = createSlice({
     goToFirstPage(state) {
       state.currentPage = 0;
     },
+    resetCurrentPage(state) {
+      state.currentPage = 0; // TODO: check if OK to add this for code readability
+    },
     goToLastPage(state,) {
       state.currentPage = getTotalPages(state.totalResults) - 1;
     },

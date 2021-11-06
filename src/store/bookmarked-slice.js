@@ -1,11 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-
-const cachedBookmarks = JSON.parse(localStorage.getItem("bookmarked"));
+// TODO: limit #bookmarked to 10
 
 const bookmarkedSlice = createSlice({
   name: "bookmarked",
   initialState: {
-    bookmarkedHeroes: cachedBookmarks || [],
+    bookmarkedHeroes: [],
   },
   reducers: {
     // addHero(state, action) {
@@ -15,17 +14,20 @@ const bookmarkedSlice = createSlice({
     //   state.bookmarked = state.bookmarked.filter(h => h.id !== action.payload);
     // },
 
+    replaceBookmarked(state, action) {
+      state.bookmarkedHeroes = action.payload;
+    },
     toggle(state, action) {
       if (state.bookmarkedHeroes.find(h => h.id === action.payload.id)) {
         state.bookmarkedHeroes = state.bookmarkedHeroes.filter(h => h.id !== action.payload.id);
       } else {
         state.bookmarkedHeroes.push(action.payload);
       }
-      localStorage.setItem("bookmarked", JSON.stringify(state.bookmarkedHeroes));
+      localStorage.setItem("bookmarkedIDs", JSON.stringify(state.bookmarkedHeroes.map(h => h.id)));
     },
     clearAll(state) {
       state.bookmarkedHeroes = [];
-      localStorage.removeItem("bookmarked");
+      localStorage.removeItem("bookmarkedIDs");
     }
   }
 })

@@ -3,3 +3,6 @@
   flex-flow: row wrap;
   justify-content: center;
 }
+.noResults {
+  font-size: 0.8rem;
+}

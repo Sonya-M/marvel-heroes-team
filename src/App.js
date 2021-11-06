@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { loadBookmarked } from "./store/bookmarked-actions";
 
 import Navbar from "./components/Navbar/Navbar";
 import AllHeroes from "./pages/AllHeroes";
@@ -11,6 +12,12 @@ import './App.css';
 import NotFound from "./pages/NotFound";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(loadBookmarked()); // need it here for TeamList
+  }, [dispatch]);
+
   const showTeam = useSelector(state => state.ui.showBookmarked);
 
   return (
