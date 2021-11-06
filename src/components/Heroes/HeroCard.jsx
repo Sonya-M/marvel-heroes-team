@@ -10,6 +10,7 @@ import {
   BsBookmarkStar,
 } from "react-icons/bs";
 import classes from "./HeroCard.module.css";
+import Rating from "../SingleHero/Rating";
 
 export default function HeroCard(props) {
   const dispatch = useDispatch();
@@ -26,7 +27,11 @@ export default function HeroCard(props) {
     <div className={classes.card}>
       <div className={classes.container}>
         <img src={getStandardImg(hero)} alt={hero.name} />
-        <div className={`${classes.overlay} centered`}>
+        <div className={classes.overlay}>
+          <div className={classes.rating}>
+            <Rating hero={hero} />
+          </div>
+
           <Link to={`/marvel-heroes/${hero.id}`}>
             <BsInfoSquareFill className={`${classes.infoBtn} ${classes.btn}`} />
           </Link>

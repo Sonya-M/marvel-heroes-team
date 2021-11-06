@@ -19,7 +19,3 @@ const uiSlice = createSlice({
 export const uiActions = uiSlice.actions;
 
 export default uiSlice;
-
-// Implementation notes:
-// no separate notification object for bookmarked heroes - so if only loading
-// bookmarked fails, on next search the user is able to add members

@@ -7,6 +7,7 @@ import { bookmarkedActions } from "../../store/bookmarked-slice";
 
 import classes from "./HeroProfile.module.css";
 import ModalImage from "../UI/ModalImage";
+import Rating from "./Rating";
 
 export default function HeroProfile(props) {
   const { hero } = props;
@@ -42,6 +43,8 @@ export default function HeroProfile(props) {
         </div>
         <div className={classes.heroDesc}>
           <h1>{hero.name}</h1>
+          <span className={classes.rating}>Your rating: </span>
+          <Rating hero={hero} />
           <p>{hero.desc ? hero.desc : "No description available."}</p>
           <Button
             className={classes.addToTeam}
