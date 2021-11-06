@@ -19,8 +19,8 @@
   position: fixed;
   border-radius: 0.3rem;
   top: 20vh;
-  left: 10%;
-  width: 80%;
+  left: 5vw;
+  width: 90vw;
   z-index: 100;
   overflow: hidden;
   /* background-color: blanchedalmond; */
@@ -36,10 +36,33 @@
 
 .small {
   top: 20vh;
-  left: 10%;
-  width: 80%;
 }
 
+@media (max-width: 600px) {
+  .modal {
+    top: 15vh;
+    font-size: small;
+  }
+  .imgModal {
+    top: 15vh;
+  }
+}
+
+@media (min-width: 600px) {
+  .modal {
+    left: calc(50% - 20rem);
+    width: 40rem;
+  }
+  .small {
+    left: calc(50% - 14rem);
+    width: 28rem;
+  }
+  .imgModal {
+    top: 10vh;
+    left: calc(50% - 15rem);
+    width: 30rem;
+  }
+}
 .header {
   background: black;
   color: white;
@@ -100,32 +123,4 @@
 .closeBtn:hover {
   transform: scale(1.05);
   box-shadow: 0 0 2px 3px rgba(255, 166, 0, 0.863);
-}
-
-@media (max-width: 600px) {
-  .modal {
-    top: 15vh;
-    font-size: small;
-  }
-  .imgModal {
-    top: 15vh;
-    left: 5%;
-    width: 90%;
-  }
-}
-
-@media (min-width: 600px) {
-  .modal {
-    left: calc(50% - 20rem);
-    width: 40rem;
-  }
-  .small {
-    left: calc(50% - 14rem);
-    width: 28rem;
-  }
-  .imgModal {
-    top: 10vh;
-    left: calc(50% - 15rem);
-    width: 30rem;
-  }
 }
