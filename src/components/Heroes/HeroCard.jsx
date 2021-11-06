@@ -43,9 +43,11 @@ export default function HeroCard(props) {
           </span>
         </div>
       </div>
-      <div className={`${classes.captionsDiv} `}>
-        <h5 className={classes.heroName}>{hero.name}</h5>
-      </div>
+      <Link to={`/marvel-heroes/${hero.id}`}>
+        <div className={`${classes.captionsDiv} `}>
+          <h5 className={classes.heroName}>{hero.name}</h5>
+        </div>
+      </Link>
     </div>
   );
 }
