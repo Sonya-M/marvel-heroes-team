@@ -32,7 +32,8 @@ export default function Description(props) {
         desc: { text, author },
       })
     );
-    history.push(`${match.url}`);
+    console.log("MATCH: ", match);
+    history.replace(`${match.url}`);
   };
   const handleCancel = () => {
     history.push(`${match.url}`);
