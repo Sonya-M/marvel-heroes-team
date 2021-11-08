@@ -9,7 +9,6 @@ export const loadBookmarked = () => {
 
     // first check if there is anything in localStorage - if not, return []
     const ids = JSON.parse(localStorage.getItem("bookmarkedIDs"));
-    console.log("ids from local storage: ", ids)
     if (!ids) return;
 
     const fetchSingleHero = (id) => {
@@ -49,9 +48,6 @@ export const loadBookmarked = () => {
         title: "Success",
         message: "Fetched bookmarked heroes!"
       }));
-
-      console.log("Dispatching replaceBookmarked...................")
-
       dispatch(bookmarkedActions.replaceBookmarked(bookmarked));
     } catch (error) {
       console.log(error);

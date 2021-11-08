@@ -15,8 +15,6 @@ import { LIMIT } from "../shared/constants";
  */
 export const getHeroes = (params) => {
 
-  console.log("#################Getting heroes...#########################");
-
   const name = params?.name ?? "";
   const limit = params?.limit ?? LIMIT;
   const offset = params?.offset ?? 0;
@@ -25,7 +23,6 @@ export const getHeroes = (params) => {
 
     const fetchHeroes = async (requestURI) => {
       const response = await fetch(requestURI);
-      console.log(response);
       if (!response.ok) {
         throw new Error(response.status || "fetchHeroes failed");
       }

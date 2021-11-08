@@ -32,7 +32,7 @@ export default function Slider(props) {
     props.cards.length * props.cardWidth +
     (props.cards.length - 1) * SLIDER_CARD_GAP;
   useLayoutEffect(() => {
-    console.log(`calculatedScrollWidth: ${scrollWidth}`);
+    // console.log(`calculatedScrollWidth: ${scrollWidth}`);
     setScrollable(contentContainerRef.current.offsetWidth < scrollWidth);
   }, [scrollWidth, windowWidth]);
 

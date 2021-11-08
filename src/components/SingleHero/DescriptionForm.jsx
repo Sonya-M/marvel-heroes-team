@@ -7,9 +7,7 @@ import classes from "./DescriptionForm.module.css";
 const removeExtraWhitespace = (str) => {
   str = str.trim();
   let words = str.split(/\s+/);
-  console.log(words);
   str = words.join(" ");
-  console.log(str);
   return str;
 };
 
@@ -31,7 +29,6 @@ export default function DescriptionForm(props) {
     (state) => state.userDescriptions.descriptions
   );
   const existingUserDesc = userDescriptions.find((d) => d.heroId === +id);
-  console.log(existingUserDesc);
 
   const [name, setName] = useState(existingUserDesc?.desc.author || "");
   const [nameIsValid, setNameIsValid] = useState(null);
@@ -45,7 +42,6 @@ export default function DescriptionForm(props) {
   const [descErrorMsg, setDescErrorMsg] = useState("");
 
   const handleInputChange = (e) => {
-    console.log("e.target: ", e.target);
     if (e.target.name === "name") {
       setName(e.target.value);
     } else if (e.target.name === "description") {

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { useLocation, useHistory } from "react-router-dom";
 import { allHeroesActions } from "../../store/all-heroes-slice";
 import { useDispatch } from "react-redux";
@@ -10,7 +10,6 @@ export default function SearchBar() {
 
   let history = useHistory();
   let location = useLocation();
-  let { search } = location;
 
   // clear search bar on logo click
   // TODO: not sure this is the right way, but I see no need for a controlled

@@ -17,12 +17,10 @@ export default function AllHeroes() {
   const dispatch = useDispatch();
 
   const scrolledDown = useScrollListener();
-  console.log(scrolledDown);
 
   const queryParams = new URLSearchParams(location.search);
   const nameStartsWith = queryParams.get("nameStartsWith");
   useEffect(() => {
-    console.log(location);
     dispatch(
       getHeroes({ name: nameStartsWith || "", offset: currentPage * LIMIT })
     );

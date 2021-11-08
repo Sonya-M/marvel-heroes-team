@@ -20,17 +20,12 @@ export default function Description(props) {
     (state) => state.userDescriptions.descriptions
   );
   const userDesc = descriptions.find((d) => d.heroId === hero.id);
-  console.log("userDesc: ", userDesc);
 
   const handleAddDesc = () => {
     history.push(`${match.url}/form`);
   };
 
   const handleSubmit = (text, author) => {
-    console.log("dispatch payload: ", {
-      heroId: hero.id,
-      desc: { text, author },
-    });
     dispatch(
       userDescriptionsActions.putDescription({
         heroId: hero.id,
@@ -56,7 +51,6 @@ export default function Description(props) {
     dispatch(userDescriptionsActions.deleteDescription(hero.id));
   };
 
-  // TODO: edit to show the add desc button only if no user description exists
   return (
     <>
       {showConfirmDialog ? (

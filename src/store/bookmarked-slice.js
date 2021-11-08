@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-// TODO: limit #bookmarked to 10
+// TODO: limit #bookmarked to 10?
 
 const bookmarkedSlice = createSlice({
   name: "bookmarked",

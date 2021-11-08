@@ -28,7 +28,6 @@ export default function HeroDetails(props) {
   const [hero, setHero] = useState(null);
 
   const heroes = useSelector((state) => state.allHeroes.heroes);
-  const bookmarked = useSelector((state) => state.bookmarked.bookmarkedHeroes);
 
   const fetchSingleHero = useCallback(async () => {
     const URL = `${endpoints.ALL_CHARACTERS}/${id}?ts=${process.env.REACT_APP_TS}&apikey=${process.env.REACT_APP_API_KEY}&hash=${process.env.REACT_APP_HASH}`;
@@ -37,7 +36,6 @@ export default function HeroDetails(props) {
       throw new Error("Hero not found.");
     }
     const json = await response.json();
-    console.log("Fetched single hero: ", json);
     return json.data.results; // should return array of length 1
   }, [id]);
 
@@ -45,7 +43,6 @@ export default function HeroDetails(props) {
     let hero = heroes.find((h) => h.id === +id);
     // if (!hero) hero = bookmarked.find((h) => h.id === +id); // cannot use this
     // because the component re-renders on every remove from bookmarked
-    console.log("RETRIEVED HERO: ", hero);
     return hero;
   }, [id, heroes]);
 
@@ -79,7 +76,6 @@ export default function HeroDetails(props) {
       throw new Error("Fetching comics failed");
     }
     const json = await response.json();
-    console.log(json);
     return json.data.results;
   }, [id]);
 
