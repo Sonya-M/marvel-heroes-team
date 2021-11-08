@@ -110,8 +110,11 @@ export default function HeroDetails(props) {
   if (errorOnHero) return <Message>{errorOnHero.message}</Message>;
   if (!hero) return <Message>Hero not found.</Message>;
 
+  // const errorInducer = {}; // test ErrorBoundary
+
   return (
     <main className={classes.container}>
+      {/* {errorInducer} */}
       <HeroProfile hero={hero} />
       <div>
         {showComics ? (

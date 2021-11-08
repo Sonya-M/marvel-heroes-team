@@ -11,7 +11,6 @@ import SearchBar from "../components/Heroes/SearchBar";
 import classes from "./AllHeroes.module.css";
 import { LIMIT } from "../shared/constants";
 
-
 export default function AllHeroes() {
   let location = useLocation();
   const currentPage = useSelector((state) => state.allHeroes.currentPage);

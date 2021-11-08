@@ -30,7 +30,7 @@
 .secondary {
   background-color: orange;
   color: black;
-  box-shadow: 0 0 4px 7px rgba(0, 0, 0, 0.359);
+  box-shadow: 0 0 2px 3px rgba(0, 0, 0, 0.159);
   border: none;
 }
 .highlighted {
