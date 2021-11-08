@@ -8,6 +8,7 @@ import { bookmarkedActions } from "../../store/bookmarked-slice";
 import classes from "./HeroProfile.module.css";
 import ModalImage from "../UI/ModalImage";
 import Rating from "./Rating";
+import Description from "./Description";
 
 export default function HeroProfile(props) {
   const { hero } = props;
@@ -38,22 +39,25 @@ export default function HeroProfile(props) {
         />
       ) : null}
       <section className={classes.profileContainer}>
-        <div className={classes.heroImg} onClick={handleShowFullSizedImg}>
-          <img src={getStandardImg(hero)} alt={hero.name} />
-        </div>
-        <div className={classes.heroDesc}>
-          <h1>{hero.name}</h1>
-          <span className={classes.rating}>Your rating: </span>
-          <Rating hero={hero} />
-          <p>{hero.desc ? hero.desc : "No description available."}</p>
+        <div className={classes.heroImg}>
+          <img
+            src={getStandardImg(hero)}
+            alt={hero.name}
+            onClick={handleShowFullSizedImg}
+          />
           <Button
             className={classes.addToTeam}
-            bg="orange"
-            color="black"
+            variant="primary"
             onClick={handleBookmark}
           >
             {isBookmarked ? "Remove from team" : "Add to team"}
           </Button>
+        </div>
+        <div className={classes.heroDesc}>
+          <h1 className={classes.h1}>{hero.name}</h1>
+          <span className={classes.rating}>Your rating: </span>
+          <Rating hero={hero} />
+          <Description hero={hero} />
         </div>
       </section>
     </>

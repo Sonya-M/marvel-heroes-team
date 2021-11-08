@@ -6,8 +6,12 @@ import classes from "./ModalConfirmDialog.module.css";
 export default function ModalConfirmDialog(props) {
   const footerContent = (
     <div className={classes.actions}>
-      <Button onClick={props.onCancel}>Cancel</Button>
-      <Button onClick={props.onConfirm}>Confirm</Button>
+      <Button variant="primary" onClick={props.onCancel}>
+        Cancel
+      </Button>
+      <Button variant="primary" onClick={props.onConfirm}>
+        Confirm
+      </Button>
     </div>
   );
 

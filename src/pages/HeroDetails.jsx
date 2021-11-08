@@ -43,10 +43,11 @@ export default function HeroDetails(props) {
 
   const retrieveHeroFromCache = useCallback(() => {
     let hero = heroes.find((h) => h.id === +id);
-    if (!hero) hero = bookmarked.find((h) => h.id === +id);
+    // if (!hero) hero = bookmarked.find((h) => h.id === +id); // cannot use this
+    // because the component re-renders on every remove from bookmarked
     console.log("RETRIEVED HERO: ", hero);
     return hero;
-  }, [id, bookmarked, heroes]);
+  }, [id, heroes]);
 
   useEffect(() => {
     const retrievedHero = retrieveHeroFromCache();

@@ -1,0 +1,72 @@
+.addDesc {
+  display: block;
+  margin: 0.5rem auto;
+}
+@media screen and (min-width: 700px) {
+  .addDesc {
+    margin: 0.5rem 0;
+  }
+}
+.desc {
+  margin: 1rem 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.author,
+.actions {
+  margin-top: 1rem;
+  font-size: 0.7rem;
+}
+.actions {
+  /* apply a shadow that starts at 3px horizontally, 5px down, with 2px of blur, and is 50% black: (works for icons too);
+  adds up on parent drop-shadow!!!
+  */
+  filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.5));
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.userDescHeading {
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+  color: gold;
+}
+.userDesc {
+  font-size: 0.9rem;
+}
+
+.actions span {
+  margin-right: 2rem;
+  background-color: rgba(0, 0, 0, 0.462);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+  padding: 0.2rem 0.4rem;
+  border-width: 1px;
+  border-style: solid;
+  cursor: pointer;
+}
+.actions span:hover {
+  transform: scale(1.02);
+  filter: brightness(1.25);
+}
+
+.edit {
+  --edit-color: rgb(190, 241, 7);
+  color: var(--edit-color);
+  border-color: var(--edit-color);
+}
+.delete {
+  --delete-color: rgb(255, 136, 0);
+  color: var(--delete-color);
+  border-color: var(--delete-color);
+}
+.icon {
+  font-size: 1.2rem;
+}
+.flipHorizontally {
+  transform: rotate(180deg);
+}

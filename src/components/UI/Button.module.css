@@ -1,17 +1,45 @@
 .button {
-  background-color: #222;
-  color: whitesmoke;
   outline: none;
-  padding: 0.4rem 0.8rem;
+  padding: 0.5rem 0.8rem;
   outline: none;
   border-radius: 0.3rem;
   cursor: pointer;
-  border: none;
   font-weight: bold;
+  box-shadow: 0 0 2px 4px rgba(0, 0, 0, 0.359);
 }
 .button:hover,
 .button:active,
 .button:focus {
-  box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.233);
+  box-shadow: 0 0 4px 7px rgba(0, 0, 0, 0.459);
+  filter: brightness(1.16);
   transform: scale(1.01);
+}
+
+.primary {
+  background-color: #111;
+  color: whitesmoke;
+  box-shadow: 0 0 2px 3px rgba(0, 0, 0, 0.109);
+  border: none;
+}
+.primary:hover,
+.primary:active,
+.primary:focus {
+  box-shadow: 0 0 2px 3px rgba(0, 0, 0, 0.159);
+}
+
+.secondary {
+  background-color: orange;
+  color: black;
+  box-shadow: 0 0 4px 7px rgba(0, 0, 0, 0.359);
+  border: none;
+}
+.highlighted {
+  background-color: rgb(201, 11, 11);
+  color: whitesmoke;
+  border: 2px solid transparent;
+}
+.highlighted:hover,
+.highlighted:focus,
+.highlighted:active {
+  border: 2px solid rgb(255, 38, 0);
 }

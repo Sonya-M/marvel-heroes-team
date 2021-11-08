@@ -9,3 +9,6 @@
   /* apply a shadow that starts at 3px horizontally, 5px down, with 2px of blur, and is 50% black: */
   filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.5));
 }
+.ratingStar:hover {
+  transform: scale(1.05);
+}
