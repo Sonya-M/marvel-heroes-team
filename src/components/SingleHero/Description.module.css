@@ -13,9 +13,8 @@
   gap: 0.5rem;
 }
 
-.author,
-.actions {
-  margin-top: 1rem;
+.author {
+  margin: 1rem 0;
   font-size: 0.7rem;
 }
 .actions {
@@ -26,6 +25,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .userDescHeading {
@@ -39,7 +39,7 @@
 
 .actions span {
   margin-right: 2rem;
-  background-color: rgba(0, 0, 0, 0.462);
+  background-color: black;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -60,7 +60,7 @@
   border-color: var(--edit-color);
 }
 .delete {
-  --delete-color: rgb(255, 136, 0);
+  --delete-color: rgb(255, 60, 0);
   color: var(--delete-color);
   border-color: var(--delete-color);
 }

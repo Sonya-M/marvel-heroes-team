@@ -10,5 +10,5 @@
   filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.5));
 }
 .ratingStar:hover {
-  transform: scale(1.05);
+  transform: scale(1.08);
 }

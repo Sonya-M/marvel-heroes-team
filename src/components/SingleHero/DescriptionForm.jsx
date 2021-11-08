@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 import Button from "../UI/Button";
 import classes from "./DescriptionForm.module.css";
 
-// TODO:
 const removeExtraWhitespace = (str) => {
   str = str.trim();
   let words = str.split(/\s+/);
@@ -17,15 +16,11 @@ const removeExtraWhitespace = (str) => {
 // TODO:
 const validateDescription = (text) => {
   // trim string and remove extra whitespace btw words, then check length
-  text = text.trim();
-  let words = text.split(/\s+/);
-  console.log(words);
-  text = words.join(" ");
-  console.log(text);
+  text = removeExtraWhitespace(text);
   return text.length >= 10;
 };
 const validateName = (name) => {
-  name = name.trim();
+  name = removeExtraWhitespace(name);
   return name.length > 0;
 };
 
@@ -74,7 +69,10 @@ export default function DescriptionForm(props) {
     e.preventDefault();
     setShowInvalid(true);
     if (!descriptionIsValid || !nameIsValid) return;
-    props.onSubmit(description, name);
+    props.onSubmit(
+      removeExtraWhitespace(description),
+      removeExtraWhitespace(name)
+    );
   };
   const handleCancel = (e) => {
     e.preventDefault();
