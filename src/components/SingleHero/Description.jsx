@@ -22,7 +22,7 @@ export default function Description(props) {
   const userDesc = descriptions.find((d) => d.heroId === hero.id);
 
   const handleAddDesc = () => {
-    history.push(`${match.url}/form`);
+    history.replace(`${match.url}/form`);
   };
 
   const handleSubmit = (text, author) => {
@@ -32,13 +32,13 @@ export default function Description(props) {
         desc: { text, author },
       })
     );
-    history.push(`${match.url}`);
+    history.replace(`${match.url}`);
   };
   const handleCancel = () => {
-    history.push(`${match.url}`);
+    history.replace(`${match.url}`);
   };
   const handleEdit = () => {
-    history.push(`${match.url}/form`);
+    history.replace(`${match.url}/form`);
   };
   const handleDelete = () => {
     setShowConfirmDialog(true);
@@ -49,6 +49,9 @@ export default function Description(props) {
   const handleConfirmDelete = () => {
     setShowConfirmDialog(false);
     dispatch(userDescriptionsActions.deleteDescription(hero.id));
+    history.replace(`${match.url}`); // by using history.replace
+    // instead of push, you prevent going back to a page with
+    // edited/deleted content, i.e. content which no longer exists
   };
 
   return (
