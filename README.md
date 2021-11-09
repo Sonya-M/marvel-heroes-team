@@ -13,3 +13,4 @@ A SPA written in React.js which allows users to browse and search Marvel heroes,
 - Routing and navigation
 - Custom hooks
 - Form validation
+- Persisting data in local storage
