@@ -11,7 +11,6 @@ A SPA written in React.js which allows users to browse and search Marvel heroes,
 - RESTFul API
 - Separation of concerns
 - Passing data through multiple layers, both ways
-- Stateful and Stateless components
 - Routing and navigation
 - Custom hooks
 - Form validation
