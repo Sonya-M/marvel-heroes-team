@@ -3,7 +3,6 @@
   padding: 0 1rem;
   color: white;
   text-shadow: 3px 3px 5px black;
-  max-width: 1000px;
   /* apply a shadow that starts at 3px horizontally, 5px down, with 2px of blur, and is 50% black: (works for icons as well)*/
   filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.5));
 }

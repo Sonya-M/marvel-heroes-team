@@ -1,6 +1,13 @@
 .sliderContainer {
-  max-width: 90vw;
+  max-width: 95vw;
+  margin: 0 auto;
   position: relative;
+}
+
+@media screen and (min-width: 600px) {
+  .sliderContainer {
+    max-width: 90vw;
+  }
 }
 
 .contentContainer {
