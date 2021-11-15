@@ -1,11 +1,13 @@
 @font-face {
   font-family: RealityCheck;
   src: url("./fonts/RealityCheck.otf") format("opentype");
+  font-display: swap;
 }
 @font-face {
   font-family: AnimeAce;
   font-weight: regular;
   src: url("./fonts/animeace2_reg.otf") format("opentype");
+  font-display: swap;
 }
 
 * {
