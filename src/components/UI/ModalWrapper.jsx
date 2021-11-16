@@ -44,11 +44,12 @@ const ModalOverlay = (props) => {
 const ModalWrapper = (props) => {
   const [show, setShow] = useState(false);
 
-  // one way to make the animation visible: setTimeout
+  // one way to make the animation visible: setTimeout, even if it's
+  // without any delay
   useEffect(() => {
     const timer = setTimeout(() => {
       setShow(true);
-    });
+    }, 1);
     return () => {
       clearTimeout(timer);
     };
@@ -61,6 +62,13 @@ const ModalWrapper = (props) => {
     }, animationDuration.exit);
   };
 
+  /*
+props.customShow - > for cases when ModalWrapper has a parent modal component (if not, will be undefined):
+the parent needs to let the animated component know when to start
+fading out,
+and only after that transition effect it should dispatch an action or call the callback
+*/
+
   const showModal =
     show && (props.customShow === undefined || props.customShow);
   return (
@@ -69,18 +77,19 @@ const ModalWrapper = (props) => {
         <Backdrop onClick={handleClose} />,
         document.getElementById("backdrop-root")
       )}
-      {ReactDOM.createPortal(
-        <ModalOverlay
-          small={props.small}
-          fullImage={props.fullImage}
-          title={props.title}
-          content={props.content}
-          onClose={handleClose}
-          footerContent={props.footerContent}
-          show={showModal}
-        />,
-        document.getElementById("overlay-root")
-      )}
+      {show &&
+        ReactDOM.createPortal(
+          <ModalOverlay
+            small={props.small}
+            fullImage={props.fullImage}
+            title={props.title}
+            content={props.content}
+            onClose={handleClose}
+            footerContent={props.footerContent}
+            show={showModal}
+          />,
+          document.getElementById("overlay-root")
+        )}
     </Fragment>
   );
 };
