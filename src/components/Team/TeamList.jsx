@@ -42,10 +42,10 @@ export default function TeamList(props) {
     setShowConfirmDialog(false);
   };
 
-  if (notification?.bookmarkedStatus === "loading") {
+  if (notification?.bookmarkedStatus === "loading" && showTeam) {
     return <Loader />;
   }
-  if (notification?.bookmarkedStatus === "error") {
+  if (notification?.bookmarkedStatus === "error" && showTeam) {
     return (
       <Message>
         <p className={classes.error}>{notification.message}</p>
