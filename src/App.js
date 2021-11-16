@@ -24,15 +24,11 @@ function App() {
     dispatch(loadBookmarked()); // need it here for TeamList
   }, [dispatch]);
 
-  const showTeam = useSelector(state => state.ui.showBookmarked);
-
   return (
     <ErrorBoundary>
       <Suspense fallback={<div><Loader /></div>}>
         <Navbar />
-        {showTeam && (
-          <TeamList />
-        )}
+        <TeamList />
         <Switch>
           <Route exact path="/">
             <Redirect to="/marvel-heroes" />

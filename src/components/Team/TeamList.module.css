@@ -1,6 +1,7 @@
 .teamList {
-  --animationDuration: 0.4s;
-  transition: all var(--animationDuration) ease-out;
+  --showDuration: 0.4s;
+  --hideDuration: 0.15s;
+  /* transition: all var(--animationDuration) ease-out; -->> using animation instead*/
 
   width: 100%;
   max-width: fit-content;
@@ -90,8 +91,25 @@
 }
 
 .teamOpen {
-  opacity: 1;
+  animation: openTeam var(--showDuration) forwards;
 }
 .teamClosed {
-  opacity: 0;
+  animation: closeTeam var(--hideDuration) forwards;
+}
+
+@keyframes openTeam {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes closeTeam {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
