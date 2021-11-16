@@ -9,6 +9,7 @@
 }
 
 .modal {
+  background-color: blanchedalmond;
   background: url("../../assets/texture-comic-book-style.jpg") no-repeat center
     center;
   -webkit-background-size: cover;
@@ -30,6 +31,7 @@
 }
 
 .imgModal {
+  /* background: unset; */
   background: transparent;
   box-shadow: none;
 }
