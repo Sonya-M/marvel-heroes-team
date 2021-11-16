@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import ReactDOM from "react-dom";
-import CSSTransition from "react-transition-group/CSSTransition";
+// import CSSTransition from "react-transition-group/CSSTransition";
 import classes from "./ModalWrapper.module.css";
 
 const animationDuration = {
@@ -16,41 +16,28 @@ const ModalOverlay = (props) => {
   const { show } = props;
 
   return (
-    <CSSTransition
-      mountOnEnter
-      unmountOnExit
-      in={show}
-      timeout={animationDuration}
-      classNames={{
-        enter: "",
-        enterActive: `${classes.modalOpen}`,
-        exit: "",
-        exitActive: `${classes.modalClosed}`,
-      }}
+    <div
+      className={` ${show ? classes.modalOpen : classes.modalClosed} ${
+        classes.modal
+      } ${props.small ? classes.small : ""} ${
+        props.fullImage ? classes.imgModal : ""
+      }`}
     >
+      <header className={classes.header}>
+        {/* if no title, empty string for formatting */}
+        <h3>{props.title ? props.title : ""}</h3>
+        <span className={classes.closeBtn} onClick={props.onClose}>
+          X
+        </span>
+      </header>
       <div
-        className={`${classes.modal} ${props.small ? classes.small : ""} ${
-          props.fullImage ? classes.imgModal : ""
-        }`}
+        className={`${!props.fullImage ? classes.content : classes.fullImage}`}
       >
-        <header className={classes.header}>
-          {/* if no title, empty string for formatting */}
-          <h3>{props.title ? props.title : ""}</h3>
-          <span className={classes.closeBtn} onClick={props.onClose}>
-            X
-          </span>
-        </header>
-        <div
-          className={`${
-            !props.fullImage ? classes.content : classes.fullImage
-          }`}
-        >
-          {props.content}
-        </div>
-        {/* footer for additional buttons */}
-        {props.footerContent ? <footer>{props.footerContent}</footer> : null}
+        {props.content}
       </div>
-    </CSSTransition>
+      {/* footer for additional buttons */}
+      {props.footerContent ? <footer>{props.footerContent}</footer> : null}
+    </div>
   );
 };
 
@@ -61,15 +48,11 @@ const ModalWrapper = (props) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShow(true);
-    }, 1);
+    });
     return () => {
       clearTimeout(timer);
     };
   }, []);
-
-  useEffect(() => {
-    return;
-  });
 
   const handleClose = () => {
     setShow(false);
@@ -78,6 +61,8 @@ const ModalWrapper = (props) => {
     }, animationDuration.exit);
   };
 
+  const showModal =
+    show && (props.customShow === undefined || props.customShow);
   return (
     <Fragment>
       {ReactDOM.createPortal(
@@ -92,7 +77,7 @@ const ModalWrapper = (props) => {
           content={props.content}
           onClose={handleClose}
           footerContent={props.footerContent}
-          show={show && (props.customShow === undefined || props.customShow)}
+          show={showModal}
         />,
         document.getElementById("overlay-root")
       )}
