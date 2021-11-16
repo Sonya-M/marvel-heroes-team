@@ -1,7 +1,7 @@
 import React, { useEffect, Suspense } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { loadBookmarked } from "./store/bookmarked-actions";
 
 import Navbar from "./components/Navbar/Navbar";
