@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { uiActions } from "../../store/ui-slice";
 import { bookmarkedActions } from "../../store/bookmarked-slice";
@@ -16,8 +16,27 @@ export default function TeamList(props) {
   const dispatch = useDispatch();
   const [showConfirmDialog, setShowConfirmDialog] = useState(false);
 
+  // for fade-in/fade-out:
+  const showTeam = useSelector((state) => state.ui.showBookmarked);
+  const [show, setShow] = useState(null);
+  const animationDuration = 500;
+
+  // delay for the transition effect  (fade-in/out)
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShow(true);
+    }, 1);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
+
   const handleClose = () => {
-    dispatch(uiActions.toggleShowBookmarked());
+    setShow(false);
+    setTimeout(() => {
+      dispatch(uiActions.toggleShowBookmarked());
+    }, animationDuration / 4); // should be much shorter than when it appears,
+    // otherwise it looks bad
   };
 
   const handleConfirmRemove = () => {
@@ -53,7 +72,12 @@ export default function TeamList(props) {
           onConfirm={handleConfirmRemove}
         />
       ) : null}
-      <section className={classes.teamList}>
+
+      <section
+        className={`${classes.teamList} ${
+          show ? classes.teamOpen : classes.teamClosed
+        }`}
+      >
         <header className={classes.header}>
           <h2>Your Team</h2>
           <span className={classes.closeBtn} onClick={handleClose}>

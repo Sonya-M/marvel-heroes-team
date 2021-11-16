@@ -1,4 +1,7 @@
 .teamList {
+  --animationDuration: 0.4s;
+  transition: all var(--animationDuration) ease-out;
+
   width: 100%;
   max-width: fit-content;
   margin: 1rem auto;
@@ -84,4 +87,11 @@
 }
 .error {
   font-size: 0.8rem;
+}
+
+.teamOpen {
+  opacity: 1;
+}
+.teamClosed {
+  opacity: 0;
 }
