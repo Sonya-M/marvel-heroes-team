@@ -47,7 +47,12 @@ export default function TeamMemberCard(props) {
       )}
       <li className={classes.memberCard}>
         <div className={classes.imgContainer}>
-          <img src={getStandardMediumImg(hero)} alt={hero.name} />
+          <img
+            src={getStandardMediumImg(hero)}
+            alt={hero.name}
+            width="100px"
+            height="100px"
+          />
           <div className={`${classes.overlay} centered`}>
             <BsTrashFill className="action" onClick={handleRemoveBookmark} />
           </div>

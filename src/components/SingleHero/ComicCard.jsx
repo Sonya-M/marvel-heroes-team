@@ -34,7 +34,12 @@ export default function ComicCard(props) {
         />
       )}
       <div key={comic.id} className={classes.card} onClick={handleShowInfo}>
-        <img src={getStandardImg(comic)} alt={comic?.title} />
+        <img
+          src={getStandardImg(comic)}
+          alt={comic?.title}
+          width="200px" /* known size of standardImg */
+          height="200px"
+        />
         <div className={classes.cardOverlay}>{shortenedTitle}</div>
       </div>
     </>

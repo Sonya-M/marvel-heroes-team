@@ -2,10 +2,11 @@
 next/prev btns, since the algorithm checks if window width is less than the 
 scrollable width of the card container */
 .card {
-  width: 200px;
+  margin: 0;
   position: relative;
   cursor: pointer;
 }
+
 .card:hover {
   box-shadow: 0 0 3px 5px rgba(0, 0, 0, 0.397);
 }

@@ -26,7 +26,12 @@ export default function HeroCard(props) {
   return (
     <div className={classes.card}>
       <div className={classes.container}>
-        <img src={getStandardImg(hero)} alt={hero.name} />
+        <img
+          src={getStandardImg(hero)}
+          alt={hero.name}
+          width="200px"
+          height="200px"
+        />
         <div className={classes.overlay}>
           <div className={classes.rating}>
             <Rating hero={hero} />
