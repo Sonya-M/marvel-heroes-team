@@ -9,8 +9,8 @@ A SPA written in React.js which allows users to browse and search Marvel heroes,
 - React.js
 - Redux
 - RESTFul API
+- CRUD
 - Separation of concerns
-- Passing data through multiple layers, both ways
 - Routing and navigation
 - Custom hooks
 - Form validation
